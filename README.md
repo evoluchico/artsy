@@ -7,3 +7,4 @@ Algorithms that are a bit artsy.
 * [draw-hypercube](https://evoluchico.github.io/artsy/draw-hypercube/)
 * [tsp-art](https://github.com/evoluchico/artsy/tree/master/tsp-art)
 * [kde-art](https://github.com/evoluchico/artsy/tree/master/kde-art)
+* [sierpinski-chords](https://evoluchico.github.io/artsy/sierpinski-chords)
