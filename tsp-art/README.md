@@ -41,7 +41,7 @@ Run it with _python2 tspart.py filename.pbm_
 
 - - - -
 
-The .pbm file can also be used to make Voronoi-like figures, using the code in (voronoi-plots.py)[voronoi-plots.py]:
+The .pbm file can also be used to make Voronoi-like figures, using the code in [voronoi-plots.py](voronoi-plots.py):
 
 - - - -
 <p align="center">
