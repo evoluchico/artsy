@@ -1,0 +1,201 @@
+<html>
+<head>
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <style>
+        @import url("https://fonts.googleapis.com/css?family=Roboto:400,400i,700,700i");
+    </style>
+
+</head>
+
+<body>
+    
+    <div id="svg-container"></div>
+    
+    <div id="toggleContainer">
+        <table>
+            <tr>
+                <td><label class="switch">
+                    <input id="Green_toggle" type="checkbox">
+                    <div class="slider round", style="--color: #61BD4F"></div>
+                </label></td>
+                <td>Papers / Research</td>
+
+                <td><label class="switch">
+                    <input id="Yellow_toggle" type="checkbox">
+                    <div class="slider round", style="--color: #F2D600"></div>
+                </label></td>
+                <td>Admin / Meetings / Emails</td>
+                
+                <td><label class="switch">
+                    <input id="Orange_toggle" type="checkbox">
+                    <div class="slider round", style="--color: #FFAB4A"></div>
+                </label></td>
+                <td>Grants / Jobs / Applications</td>
+            </tr>
+            <tr>
+                <td><label class="switch">
+                    <input id="Violet_toggle" type="checkbox">
+                    <div class="slider round", style="--color: #C377E0"></div>
+                </label></td>
+                <td>Teaching / Supervising</td>
+
+                <td><label class="switch">
+                    <input id="Blue_toggle" type="checkbox">
+                    <div class="slider round", style="--color: #0079BF"></div>
+                </label></td>
+                <td>Public engagement</td>
+
+                <td><label class="switch">
+                    <input id="Red_toggle" type="checkbox">
+                    <div class="slider round", style="--color: #EB5A46"></div>
+                </label></td>
+                <td>Art</td>
+            </tr>
+            <tr>
+                <td><label class="switch">
+                    <input id="Bars_toggle" type="checkbox">
+                    <div class="slider round", style="--color: #900"></div>
+                </label></td>
+                <td>Plot bars</td>
+
+                <td><label class="switch">
+                    <input id="Annotations_toggle" type="checkbox">
+                    <div class="slider round", style="--color: #900"></div>
+                </label></td>
+                <td>Plot annotations</td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+    BlueCheckbox        = document.querySelector('input[id="Blue_toggle"]');
+    VioletCheckbox      = document.querySelector('input[id="Violet_toggle"]');
+    RedCheckbox         = document.querySelector('input[id="Red_toggle"]');
+    OrangeCheckbox      = document.querySelector('input[id="Orange_toggle"]');
+    YellowCheckbox      = document.querySelector('input[id="Yellow_toggle"]');
+    GreenCheckbox       = document.querySelector('input[id="Green_toggle"]');
+    BarsCheckbox        = document.querySelector('input[id="Bars_toggle"]');
+    AnnotationsCheckbox = document.querySelector('input[id="Annotations_toggle"]');
+    
+    BlueCheckbox.checked=true;
+    VioletCheckbox.checked=true;
+    RedCheckbox.checked=true;
+    OrangeCheckbox.checked=true;
+    YellowCheckbox.checked=true;
+    GreenCheckbox.checked=true;
+    BarsCheckbox.checked=true;
+    AnnotationsCheckbox.checked=true;
+
+    BlueCheckbox.onchange = function() {
+      if(this.checked) {
+        if(BarsCheckbox.checked){ d3.selectAll("#layer7").attr("visibility", "visible"); }
+        if(AnnotationsCheckbox.checked){ d3.selectAll("#g8256").attr("visibility", "visible"); }
+      } else {
+        d3.selectAll("#layer7").attr("visibility", "hidden");
+        d3.selectAll("#g8256").attr("visibility", "hidden");
+      }
+    };
+    VioletCheckbox.onchange = function() {
+      if(this.checked) {
+        if(BarsCheckbox.checked){ d3.selectAll("#layer6").attr("visibility", "visible"); }
+        if(AnnotationsCheckbox.checked){ d3.selectAll("#layer10").attr("visibility", "visible"); }
+      } else {
+        d3.selectAll("#layer6").attr("visibility", "hidden");
+        d3.selectAll("#layer10").attr("visibility", "hidden");
+      }
+    };
+    RedCheckbox.onchange = function() {
+      if(this.checked) {
+        if(BarsCheckbox.checked){ d3.selectAll("#layer5").attr("visibility", "visible"); }
+        if(AnnotationsCheckbox.checked){ d3.selectAll("#layer16").attr("visibility", "visible"); }
+      } else {
+        d3.selectAll("#layer5").attr("visibility", "hidden");
+        d3.selectAll("#layer16").attr("visibility", "hidden");
+      }
+    };
+    OrangeCheckbox.onchange = function() {
+      if(this.checked) {
+        if(BarsCheckbox.checked){ d3.selectAll("#layer4").attr("visibility", "visible"); }
+        if(AnnotationsCheckbox.checked){ d3.selectAll("#layer12").attr("visibility", "visible"); }
+      } else {
+        d3.selectAll("#layer4").attr("visibility", "hidden");
+        d3.selectAll("#layer12").attr("visibility", "hidden");
+      }
+    };
+    YellowCheckbox.onchange = function() {
+      if(this.checked) {
+        if(BarsCheckbox.checked){ d3.selectAll("#layer3").attr("visibility", "visible"); }
+        if(AnnotationsCheckbox.checked){ d3.selectAll("#layer11").attr("visibility", "visible"); }
+      } else {
+        d3.selectAll("#layer3").attr("visibility", "hidden");
+        d3.selectAll("#layer11").attr("visibility", "hidden");
+      }
+    };
+    GreenCheckbox.onchange = function() {
+      if(this.checked) {
+        if(BarsCheckbox.checked){ d3.selectAll("#layer2").attr("visibility", "visible"); }
+        if(AnnotationsCheckbox.checked){ d3.selectAll("#layer13").attr("visibility", "visible"); }
+      } else {
+        d3.selectAll("#layer2").attr("visibility", "hidden");
+        d3.selectAll("#layer13").attr("visibility", "hidden");
+      }
+    };    
+
+    BarsCheckbox.onchange = function() {
+      if(this.checked) {
+        if(GreenCheckbox.checked){ d3.selectAll("#layer2").attr("visibility", "visible"); }
+        if(YellowCheckbox.checked){d3.selectAll("#layer3").attr("visibility", "visible"); }
+        if(OrangeCheckbox.checked){d3.selectAll("#layer4").attr("visibility", "visible"); }
+        if(RedCheckbox.checked){d3.selectAll("#layer5").attr("visibility", "visible"); }
+        if(VioletCheckbox.checked){d3.selectAll("#layer6").attr("visibility", "visible"); }
+        if(BlueCheckbox.checked){d3.selectAll("#layer7").attr("visibility", "visible"); }
+      } else {
+        d3.selectAll("#layer2").attr("visibility", "hidden");
+        d3.selectAll("#layer3").attr("visibility", "hidden");
+        d3.selectAll("#layer4").attr("visibility", "hidden");
+        d3.selectAll("#layer5").attr("visibility", "hidden");
+        d3.selectAll("#layer6").attr("visibility", "hidden");
+        d3.selectAll("#layer7").attr("visibility", "hidden");
+      }
+    };
+
+    AnnotationsCheckbox.onchange = function() {
+      if(this.checked) {
+        if(GreenCheckbox.checked){ d3.selectAll("#layer13").attr("visibility", "visible"); }
+        if(YellowCheckbox.checked){d3.selectAll("#layer11").attr("visibility", "visible"); }
+        if(OrangeCheckbox.checked){d3.selectAll("#layer12").attr("visibility", "visible"); }
+        if(RedCheckbox.checked){d3.selectAll("#layer16").attr("visibility", "visible"); }
+        if(VioletCheckbox.checked){d3.selectAll("#layer10").attr("visibility", "visible"); }
+        if(BlueCheckbox.checked){d3.selectAll("#g8256").attr("visibility", "visible"); }
+      } else {
+        d3.selectAll("#layer13").attr("visibility", "hidden");
+        d3.selectAll("#layer11").attr("visibility", "hidden");
+        d3.selectAll("#layer12").attr("visibility", "hidden");
+        d3.selectAll("#layer16").attr("visibility", "hidden");
+        d3.selectAll("#layer10").attr("visibility", "hidden");
+        d3.selectAll("#g8256").attr("visibility", "hidden");
+      }
+    };
+
+    // Load svg
+    const promise = d3.xml("2020_dataviz.svg")
+      .then(data => {
+        d3.select("#svg-container").node().append(data.documentElement)
+      });
+
+    function successCallback(result) {
+      AnnotationsCheckbox.click()
+    }
+
+    function failureCallback(error) {
+      console.error("Error loading svg: " + error);
+    }
+    // Turn Annotations off
+    promise.then(successCallback, failureCallback);
+
+
+    </script>
+
+</body>
+</html>
